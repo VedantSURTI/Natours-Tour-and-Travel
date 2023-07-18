@@ -22,6 +22,32 @@ export const login = async (email, password) => {
   }
 };
 
+export const signup = async (name, email, password, passwordConfirm) => {
+  try {
+    const res = await axios({
+      method: 'POST',
+      url: '/api/v1/users/signup',
+      data: {
+        name,
+        email,
+        password,
+        passwordConfirm,
+      },
+    });
+
+    if (res.data.status === 'success') {
+      alert('Signed in suceessfully. Welcome!');
+      window.setTimeout(() => {
+        location.assign('/');
+      }, 1500);
+    }
+  } catch (err) {
+    alert(err.message);
+    console.log(err);
+  }
+};
+
+
 // document.querySelector('.form').addEventListener('submit', (e) => {
 //   e.preventDefault();
 //   const email = document.getElementById('email').value;

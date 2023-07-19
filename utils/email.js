@@ -9,9 +9,9 @@ module.exports = class Email {
     this.from = `Vedant Surti <${process.env.EMAIL_FROM}>`;
   }
   newTransport() {
-    if (process.env.NODE_ENV === 'production') {
-      return 1;
-    }
+    // if (process.env.NODE_ENV === 'production') {
+    //   return 1;
+    // }
     return nodemailer.createTransport({
       host: process.env.EMAIL_HOST,
       port: process.env.EMAIL_PORT,

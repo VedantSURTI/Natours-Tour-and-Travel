@@ -34,17 +34,17 @@ const reviewScehma = new mongoose.Schema(
 );
 
 reviewScehma.pre(/^find/, function (next) {
-  //   this.populate({
-  //     path: 'tour',
-  //     select: 'name',
-  //   }).populate({
-  //     path: 'user',
-  //     select: 'name photo',
-  //   });
-  this.populate({
-    path: 'user',
-    select: 'name photo',
-  });
+    this.populate({
+      path: 'tour',
+      select: 'name imageCover',
+    }).populate({
+      path: 'user',
+      select: 'name photo',
+    });
+  // this.populate({
+  //   path: 'user',
+  //   select: 'name photo',
+  // });
   next();
 });
 

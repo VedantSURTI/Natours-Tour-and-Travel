@@ -79,8 +79,6 @@ block content
                 +reviewCard(review)
 
 
-
-
     section.section-cta
         .cta
             .cta__img.cta__img--logo
@@ -94,3 +92,19 @@ block content
                     button.btn.btn--green.span-all-rows#book-tour(data-tour-id=`${tour.id}`) Book tour now!
                 else 
                     a.btn.btn--green.span-all-rows(href='/login') Log in to book tour now!
+    
+    section.section-cta
+        .cta
+            h3.review--post='Provide your valuable feedback!'
+            .cta__content
+                form.review--form
+                    .coolinput
+                        label.text(for='input')
+                        input.input#rating(type='text',placeholder='Enter Rating',name='rating')
+                    .coolinput
+                        label.text(for='input')
+                        input.input#review(type='text',placeholder='Write review here...',name='review')
+                    if user 
+                        button.btn.btn--green.span-all-rows#post-review(data-tour-id=`${tour.id}`,data-user-id=`${user.id}`) Post Review
+                    else 
+                        a.btn.btn--green.span-all-rows(href='/login') Log in to post review

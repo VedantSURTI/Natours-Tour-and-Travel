@@ -231,6 +231,7 @@ body {
 }
 
 .btn--green {
+  margin-top: 50px;
   background-color: #55c57a;
   color: #fff;
 }
@@ -1321,4 +1322,41 @@ body {
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
   -webkit-transform: translateY(-2px);
   transform: translateY(-2px);
+}
+
+.coolinput {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  position: static;
+  max-width: 240px;
+  margin-top: 50px;
+}
+
+.coolinput label.text {
+  font-size: 0.75rem;
+  color: #55c57a;
+  font-weight: 700;
+  position: relative;
+  top: 0.5rem;
+  margin: 0 0 0 7px;
+  padding: 0 3px;
+  background: #e8e8e8;
+  width: fit-content;
+}
+
+.coolinput input[type=text].input {
+  padding: 11px 10px;
+  width: 523.2px;
+  font-size: 1.6rem;
+  border: 2px #55c57a solid;
+  border-radius: 5px;
+  background: #e8e8e8;
+}
+
+.coolinput input[type=text].input:focus {
+  outline: none;
+}
+.review--post{
+  font-size: 1.6rem;
 }

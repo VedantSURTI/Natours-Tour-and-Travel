@@ -2,12 +2,14 @@ import axios from 'axios';
 import { login } from './login';
 import { updateSettings } from './updateSettings';
 import { bookTour } from './stripe';
+import { postReview } from './postReview';
 // import { signup } from './login';
 const loginForm = document.querySelector('.form--login');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-settings');
 const bookBtn = document.getElementById('book-tour');
 const signupForm = document.querySelector('.form--signup');
+const reviewForm = document.querySelector('.review--form');
 if (loginForm) {
   loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -59,7 +61,7 @@ if (bookBtn) {
 
 const signup = async (name, email, password, passwordConfirm) => {
   try {
-    console.log(name,email);
+    console.log(name, email);
     const res = await axios({
       method: 'POST',
       url: '/api/v1/users/signup',
@@ -92,5 +94,18 @@ if (signupForm) {
     const passwordConfirm = document.getElementById('password-confirm').value;
     // console.log(name,email);
     signup(name, email, password, passwordConfirm);
+  });
+}
+
+if (reviewForm) {
+  reviewForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const rating = document.getElementById('rating').value;
+    const review = document.getElementById('review').value;
+    const user = document.getElementById('post-review').dataset.userId;
+    const tour = document.getElementById('post-review').dataset.tourId;
+    postReview(review, rating, tour, user);
+    document.getElementById('rating').value='';
+    document.getElementById('review').value='';
   });
 }
